@@ -1,0 +1,36 @@
+
+<style>
+h2.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;padding:1rem 0}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.dec{font-size:22px;font-weight:500;color:var(--color-text-primary)}
+.bin{font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary);word-break:break-all}
+.label{font-size:11px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.04em}
+.controls{display:flex;align-items:center;gap:10px;padding:0 0 1rem}
+.controls label{font-size:13px;color:var(--color-text-secondary)}
+</style>
+<h2 class="sr-only">Decimal to binary converter showing 20 numbers in a grid</h2>
+<div class="controls">
+  <label>Start:</label>
+  <input type="number" id="start" value="1" min="0" max="10000" style="width:80px">
+  <label>Count: 20</label>
+  <button onclick="render()">↻ Update</button>
+</div>
+<div class="grid" id="grid"></div>
+<script>
+function toBinary(n){return(n>>>0).toString(2)}
+function render(){
+  const start=parseInt(document.getElementById('start').value)||0;
+  const grid=document.getElementById('grid');
+  grid.innerHTML='';
+  for(let i=0;i<20;i++){
+    const n=start+i;
+    const card=document.createElement('div');
+    card.className='card';
+    card.innerHTML=`<span class="label">decimal</span><span class="dec">${n}</span><span class="label">binary</span><span class="bin">${toBinary(n)}</span>`;
+    grid.appendChild(card);
+  }
+}
+render();
+document.getElementById('start').addEventListener('keydown',e=>e.key==='Enter'&&render());
+</script>
