@@ -1,0 +1,15 @@
+
+Assignment 2 Announcement
+
+For our next assignment, we are bridging the gap between hardware and software. You will be building a Software Floating-Point Unit and presenting your algorithm in Class!
+
+The Challenge:
+Standard TOYs only have integer ALUs. Your job is to create a custom 16-bit Floating-Point data type and write the logical steps required to add two of them together using only your TOY hardware. 
+
+Deliverables & Rules:
+Time Limit: 2 Minutes
+Format: A Single slide presentation built in Canva explaining the 5 core steps (Extraction, Alignment, Arithmetic, Normalization, Packing). You must include a logic snippet/pseudocode.
+
+How to Submit:
+Generate your Canva presentation link.
+Crucial: Make sure the access setting is changed to "Anyone with the link" so we can view it!
